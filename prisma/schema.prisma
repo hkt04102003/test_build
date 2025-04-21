@@ -1,0 +1,365 @@
+// // This is your Prisma schema file,
+// // learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// datasource db {
+//   provider = "mysql"
+//   url      = env("DATABASE_URL")
+// }
+
+// model Product {
+//   productID     BigInt            @id @default(autoincrement())
+//   name          String
+//   description   String?           @db.Text
+//   price         Float
+//   category      String
+//   defaultImage  String
+//   createdAt     DateTime          @default(now())
+//   orderDetails  OrderDetail[]
+//   myCart        MyCart[]
+//   ratings       Rating[]
+//   productImages ProductImage[]
+//   variants      ProductVariants[] @relation("ProductToProductVariants")
+//   tag         Tag[]
+// }
+
+// model User {
+//   userID       BigInt   @id @default(autoincrement())
+//   phone        BigInt?
+//   name         String
+//   address      String?
+//   mail         String @unique
+//   password     String?
+//   oAuthID      String?
+//   avatarURL    String?
+//   authProvider String   @default("Traditional")
+//   createdAt    DateTime @default(now())
+//   orders       Order[] 
+//   myCart       MyCart[] 
+//   ratings      Rating[]
+// }
+
+// model Admin {
+//   id       BigInt @id @default(autoincrement())
+//   name     String
+//   password String
+// }
+
+// model Attribute {
+//   attributeID BigInt   @id @default(autoincrement())
+//   name        String
+//   value       String
+//   code        String
+//   createdAt   DateTime @default(now())
+// }
+
+// model Category {
+//   categoryID BigInt     @id @default(autoincrement())
+//   name       String
+//   parentID   BigInt?
+//   parent     Category?  @relation("CategoryToParent", fields: [parentID], references: [categoryID], onDelete: SetNull)
+//   children   Category[] @relation("CategoryToParent")
+//   image      String
+//   createdAt  DateTime
+// }
+
+// model Gallery {
+//   galleryID   BigInt   @id @default(autoincrement())
+//   title       String
+//   image       Json
+//   description String
+//   createdAt   DateTime @default(now())
+// }
+
+// model Order {
+//   orderID      BigInt   @id @default(autoincrement())
+//   userID       BigInt
+//   totalPrice   Decimal  @db.Decimal(12, 2)
+//   createdAt    DateTime @default(now())
+
+//   user         User     @relation(fields: [userID], references: [userID], onDelete: Cascade)
+//   orderDetails OrderDetail[]
+//   payment      Payment? // Không cần fields/references ở đây
+// }
+
+// model OrderDetail {
+//   orderDetailID BigInt  @id @default(autoincrement())
+//   orderID       BigInt
+//   productID     BigInt
+//   quantity      BigInt
+//   price         Decimal @db.Decimal(12, 2)
+//   order         Order   @relation(fields: [orderID], references: [orderID], onDelete: Cascade)
+//   product       Product @relation(fields: [productID], references: [productID], onDelete: Cascade)
+// }
+
+// model Payment {
+//   paymentID     BigInt   @id @default(autoincrement())
+//    orderID       BigInt?  @unique  // Mỗi Payment chỉ có thể liên kết với 1 Order
+//   paymentMethod String
+//   paidAmount    Decimal  @db.Decimal(12, 2)
+//   createdAt     DateTime @default(now())
+//   paymentStatus String
+//   transactionID String   @unique
+
+//   order         Order?    @relation(fields: [orderID], references: [orderID])
+// }
+
+// model MyCart {
+//   cartID    BigInt   @id @default(autoincrement())
+//   userID    BigInt
+//   productID BigInt
+//   quantity  BigInt
+//   color     String
+//   size      String
+//   createdAt DateTime @default(now())
+//   user      User     @relation(fields: [userID], references: [userID], onDelete: Cascade)
+//   product   Product  @relation(fields: [productID], references: [productID], onDelete: Cascade)
+// }
+
+// model Rating {
+//   ratingID  BigInt   @id @default(autoincrement())
+//   productID BigInt
+//   userID    BigInt
+//   title     String
+//   rating    Int      @db.TinyInt
+//   review    String?  @db.Text
+//   createdAt DateTime @default(now())
+//   user      User     @relation(fields: [userID], references: [userID], onDelete: Cascade)
+//   product   Product  @relation(fields: [productID], references: [productID], onDelete: Cascade)
+// }
+
+
+
+// model ProductVariants {
+//   id           BigInt        @id @default(autoincrement())
+//   productID    BigInt
+//   imageID      BigInt?
+//   attributes   Json // Lưu trữ các thuộc tính (ví dụ: {"Màu sắc": "Đỏ", "Size": "XL"})
+//   createdAt    DateTime      @default(now())
+//   product      Product       @relation("ProductToProductVariants", fields: [productID], references: [productID], onDelete: Cascade)
+//   productImage ProductImage? @relation(fields: [imageID], references: [imageID])
+// }
+
+// model ProductImage {
+//   imageID   BigInt            @id @default(autoincrement())
+//   productID BigInt
+//   imageURL  String // URL của ảnh
+//   stock     BigInt
+//   product   Product           @relation(fields: [productID], references: [productID], onDelete: Cascade)
+//   variants  ProductVariants[]
+// }
+
+// model Blog {
+//   blogId      Int           @id @default(autoincrement())
+//   title       String
+//   img         String?
+//   description String
+//   author      String
+//   category    String
+//   createdAt   DateTime      @default(now())
+//   comments    CommentBlog[] @relation("BlogComments")
+// }
+
+// model CommentBlog {
+//   commentBlogId Int      @id @default(autoincrement())
+//   blogId        Int
+//   name          String
+//   email         String
+//   phone         String?
+//   message       String
+//   createdAt     DateTime @default(now())
+//   blog          Blog     @relation("BlogComments", fields: [blogId], references: [blogId], onDelete: Cascade)
+// }
+
+// model Tag {
+//   tagId      Int      @id @default(autoincrement())
+//   productId  BigInt
+//   attributes Json
+//   createdAt  DateTime @default(now())
+//   product    Product  @relation(fields: [productId], references: [productID])
+// }
+
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  productID     BigInt            @id @default(autoincrement())
+  name          String
+  description   String?           @db.Text
+  price         Float
+  category      String
+  defaultImage  String
+  createdAt     DateTime          @default(now())
+  orderDetails  OrderDetail[]
+  myCart        MyCart[]
+  ratings       Rating[]
+  productImages ProductImage[]
+  variants      ProductVariants[] @relation("ProductToProductVariants")
+  tag         Tag[]
+}
+
+model User {
+  userID       BigInt   @id @default(autoincrement())
+  phone        BigInt?
+  name         String
+  address      String?
+  mail         String @unique
+  password     String?
+  oAuthID      String?
+  avatarURL    String?
+  authProvider String   @default("Traditional")
+  createdAt    DateTime @default(now())
+  orders       Order[] 
+  myCart       MyCart[] 
+  ratings      Rating[]
+}
+
+model Admin {
+  id       BigInt @id @default(autoincrement())
+  name     String
+  password String
+}
+
+model Attribute {
+  attributeID BigInt   @id @default(autoincrement())
+  name        String
+  value       String
+  code        String
+  createdAt   DateTime @default(now())
+}
+
+model Category {
+  categoryID BigInt     @id @default(autoincrement())
+  name       String
+  createdAt  DateTime
+}
+// model Category {
+//   categoryID BigInt     @id @default(autoincrement())
+//   name       String
+//   parentID   BigInt?
+//   parent     Category?  @relation("CategoryToParent", fields: [parentID], references: [categoryID], onDelete: SetNull)
+//   children   Category[] @relation("CategoryToParent")
+//   image      String
+//   createdAt  DateTime
+// }
+model Gallery {
+  galleryID   BigInt   @id @default(autoincrement())
+  title       String
+  image       Json
+  description String
+  createdAt   DateTime @default(now())
+}
+
+model Order {
+  orderID      BigInt   @id @default(autoincrement())
+  userID       BigInt
+  totalPrice   Decimal  @db.Decimal(12, 2)
+  createdAt    DateTime @default(now())
+
+  user         User     @relation(fields: [userID], references: [userID], onDelete: Cascade)
+  orderDetails OrderDetail[]
+  payment      Payment? // Không cần fields/references ở đây
+}
+
+model OrderDetail {
+  orderDetailID BigInt  @id @default(autoincrement())
+  orderID       BigInt
+  productID     BigInt
+  quantity      BigInt
+  price         Decimal @db.Decimal(12, 2)
+  order         Order   @relation(fields: [orderID], references: [orderID], onDelete: Cascade)
+  product       Product @relation(fields: [productID], references: [productID], onDelete: Cascade)
+}
+
+model Payment {
+  paymentID     BigInt   @id @default(autoincrement())
+   orderID       BigInt?  @unique  // Mỗi Payment chỉ có thể liên kết với 1 Order
+  paymentMethod String
+  paidAmount    Decimal  @db.Decimal(12, 2)
+  createdAt     DateTime @default(now())
+  paymentStatus String
+  transactionID String   @unique
+
+  order         Order?    @relation(fields: [orderID], references: [orderID])
+}
+
+model MyCart {
+  cartID    BigInt   @id @default(autoincrement())
+  userID    BigInt
+  productID BigInt
+  quantity  BigInt
+  color     String
+  size      String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userID], references: [userID], onDelete: Cascade)
+  product   Product  @relation(fields: [productID], references: [productID], onDelete: Cascade)
+}
+
+model Rating {
+  ratingID  BigInt   @id @default(autoincrement())
+  productID BigInt
+  userID    BigInt
+  title     String
+  rating    Int      
+  review    String?  @db.Text
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userID], references: [userID], onDelete: Cascade)
+  product   Product  @relation(fields: [productID], references: [productID], onDelete: Cascade)
+}
+
+
+
+model ProductVariants {
+  id           BigInt        @id @default(autoincrement())
+  productID    BigInt
+  imageID      BigInt?
+  attributes   Json // Lưu trữ các thuộc tính (ví dụ: {"Màu sắc": "Đỏ", "Size": "XL"})
+  createdAt    DateTime      @default(now())
+  product      Product       @relation("ProductToProductVariants", fields: [productID], references: [productID], onDelete: Cascade)
+  productImage ProductImage? @relation(fields: [imageID], references: [imageID])
+}
+
+model ProductImage {
+  imageID   BigInt            @id @default(autoincrement())
+  productID BigInt
+  imageURL  String // URL của ảnh
+  stock     BigInt
+  product   Product           @relation(fields: [productID], references: [productID], onDelete: Cascade)
+  variants  ProductVariants[]
+}
+
+model Blog {
+  blogId      Int           @id @default(autoincrement())
+  title       String
+  img         String?
+  description String
+  author      String
+  category    String
+  createdAt   DateTime      @default(now())
+  comments    CommentBlog[] @relation("BlogComments")
+}
+
+model CommentBlog {
+  commentBlogId Int      @id @default(autoincrement())
+  blogId        Int
+  name          String
+  email         String
+  phone         String?
+  message       String
+  createdAt     DateTime @default(now())
+  blog          Blog     @relation("BlogComments", fields: [blogId], references: [blogId], onDelete: Cascade)
+}
+
+model Tag {
+  tagId      Int      @id @default(autoincrement())
+  productId  BigInt
+  attributes Json
+  createdAt  DateTime @default(now())
+  product    Product  @relation(fields: [productId], references: [productID])
+}

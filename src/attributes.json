@@ -1,0 +1,294 @@
+[
+    {
+        "name": "gender",
+        "value": "male"
+    },
+    {
+        "name": "gender",
+        "value": "female"
+    },
+    {
+        "name": "season",
+        "value": "Spring"
+    },
+    {
+        "name": "season",
+        "value": "Summer"
+    },
+    {
+        "name": "season",
+        "value": "Fall"
+    },
+    {
+        "name": "season",
+        "value": "Winter"
+    },
+    {
+        "name": "color",
+        "value": "navy"
+    },
+    {
+        "name": "material",
+        "value": "cotton"
+    },
+    {
+        "name": "material",
+        "value": "wool"
+    },
+    {
+        "name": "material",
+        "value": "silk"
+    },
+    {
+        "name": "technique",
+        "value": "Jacquard"
+    },
+    {
+        "name": "pattern",
+        "value": "Monogram Pattern"
+    },
+    {
+        "name": "pattern",
+        "value": "Louis Vuitton Lettering"
+    },
+    {
+        "name": "size",
+        "value": "xl"
+    },
+    {
+        "name": "color",
+        "value": "white"
+    },
+    {
+        "name": "color",
+        "value": "beige"
+    },
+    {
+        "name": "material",
+        "value": "Cashmere"
+    },
+    {
+        "name": "size",
+        "value": "s"
+    },
+    {
+        "name": "size",
+        "value": "m"
+    },
+    {
+        "name": "size",
+        "value": "l"
+    },
+    {
+        "name": "color",
+        "value": "black"
+    },
+    {
+        "name": "color",
+        "value": "red"
+    },
+    {
+        "name": "color",
+        "value": "blue"
+    },
+    {
+        "name": "color",
+        "value": "green"
+    },
+    {
+        "name": "pattern",
+        "value": "Striped"
+    },
+    {
+        "name": "pattern",
+        "value": "Checked"
+    },
+    {
+        "name": "pattern",
+        "value": "Floral"
+    },
+    {
+        "name": "pattern",
+        "value": "Graphic"
+    },
+    {
+        "name": "material",
+        "value": "Linen"
+    },
+    {
+        "name": "material",
+        "value": "Denim"
+    },
+    {
+        "name": "color",
+        "value": "gray"
+    },
+    {
+        "name": "color",
+        "value": "yellow"
+    },
+    {
+        "name": "color",
+        "value": "orange"
+    },
+    {
+        "name": "color",
+        "value": "purple"
+    },
+    {
+        "name": "color",
+        "value": "pink"
+    },
+    {
+        "name": "color",
+        "value": "brown"
+    },
+    {
+        "name": "color",
+        "value": "darkgray"
+    },
+    {
+        "name": "color",
+        "value": "olive"
+    },
+    {
+        "name": "style",
+        "value": "Casual"
+    },
+    {
+        "name": "style",
+        "value": "Streetwear"
+    },
+    {
+        "name": "style",
+        "value": "Công sở"
+    },
+    {
+        "name": "style",
+        "value": "Vintage"
+    },
+    {
+        "name": "style",
+        "value": "Bohemian"
+    },
+    {
+        "name": "style",
+        "value": "Tối giản"
+    },
+    {
+        "name": "style",
+        "value": "Thể thao"
+    },
+    {
+        "name": "style",
+        "value": "Punk"
+    },
+    {
+        "name": "style",
+        "value": "Gothic"
+    },
+    {
+        "name": "style",
+        "value": "Học đường"
+    },
+    {
+        "name": "style",
+        "value": "Hipster"
+    },
+    {
+        "name": "style",
+        "value": "Grunge"
+    },
+    {
+        "name": "style",
+        "value": "Y2K"
+    },
+    {
+        "name": "style",
+        "value": "Cổ điển"
+    },
+    {
+        "name": "style",
+        "value": "Năng động"
+    },
+    {
+        "name": "style",
+        "value": "Thanh lịch"
+    },
+    {
+        "name": "style",
+        "value": "Sang trọng"
+    },
+    {
+        "name": "style",
+        "value": "Nghệ thuật"
+    },
+    {
+        "name": "style",
+        "value": "Retro"
+    },
+    {
+        "name": "style",
+        "value": "Dễ thương"
+    },
+    {
+        "name": "material",
+        "value": "jean"
+    },
+    {
+        "name": "size",
+        "value": "xs"
+    },
+    {
+        "name": "size",
+        "value": "2xl"
+    },
+    {
+        "name": "pattern",
+        "value": "LV Vers United"
+    },
+    {
+        "name": "material",
+        "value": "Polyamide"
+    },
+    {
+        "name": "style",
+        "value": "Thời thượng"
+    },
+    {
+        "name": "pattern",
+        "value": "LV"
+    },
+    {
+        "name": "pattern",
+        "value": "37th America’s Cup"
+    },
+    {
+        "name": "pattern",
+        "value": "LV Vers"
+    },
+    {
+        "name": "pattern",
+        "value": "Le Monde Est À Vous"
+    },
+    {
+        "name": "size",
+        "value": "3xl"
+    },
+    {
+        "name": "style",
+        "value": "Phong cách"
+    },
+    {
+        "name": "material",
+        "value": "Polyethylene"
+    },
+    {
+        "name": "material",
+        "value": "Polyester"
+    },
+    {
+        "name": "material",
+        "value": "goatskin"
+    }
+]

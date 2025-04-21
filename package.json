@@ -1,0 +1,28 @@
+{
+  "name": "node-server-project",
+  "version": "1.0.0",
+  "description": "A simple Node.js server project that uses environment variables to set the port.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server2.js",
+    "dev": "nodemon src/server2.js",
+    "build": "mkdir -p dist && cp -r src/* dist/"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "axios": "^1.8.4",
+    "cohere-ai": "^7.16.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^5.1.0",
+    "node-cache": "^5.1.2",
+    "node-server-project": "file:",
+    "openai": "^4.91.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "prisma": "^6.5.0"
+  }
+}
